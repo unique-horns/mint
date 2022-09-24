@@ -56,14 +56,14 @@ function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [feedback, setFeedback] = useState("The world needs more Unicorns!");
+  const [feedback, setFeedback] = useState("❤️");
   const [claimingNft, setClaimingNft] = useState(false);
 
   const claimNFTs = (_amount) => {
     if (_amount <= 0) {
       return;
     }
-    setFeedback("Preparing your UniqueHorn NFT(s)...");
+    setFeedback("Preparing your 🦄...");
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(blockchain.account, _amount)
@@ -80,7 +80,7 @@ function App() {
       })
       .then((receipt) => {
         setFeedback(
-          "Woohoo! You just minted your UniqueHorn(s)! Visit Opensea.io to view your NFT!"
+          "Woohoo! You just minted your 🦄! Visit Opensea.io to view your NFT!"
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -103,7 +103,7 @@ function App() {
         <s.TextTitle
           style={{ textAlign: "center", fontSize: 36, fontWeight: "bold" }}
         >
-          The Bee Collaborative NFT Minting Hive
+          🦄 UniqueHorn NFT Minting 🦄
           
         </s.TextTitle>
         <s.SpacerMedium />
@@ -114,7 +114,7 @@ function App() {
             <s.TextTitle
               style={{ textAlign: "center", fontSize: 26, fontWeight: "bold" }}
             >
-              {data.totalSupply}/10000
+              Already minted: {data.totalSupply}/10000
             </s.TextTitle>
           </s.Container>
           <s.SpacerMedium />
@@ -131,7 +131,7 @@ function App() {
                 </s.TextTitle>
                 <s.SpacerSmall />
                 <s.TextDescription style={{ textAlign: "center" }}>
-                  You can still buy and trade UniqueHorn NFTs on{" "}!
+                  You can still buy and trade 🦄 NFTs on{" "}!
                   <a
                     target={""}
                     href={"https://opensea.io/collection/unique-horns"}
@@ -143,12 +143,9 @@ function App() {
             ) : (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
-                  1 UniqueHorn NFT costs 20 Matic
+                  1 🦄 NFT costs 20 Matic
                 </s.TextTitle>
                 <s.SpacerXSmall />
-                <s.TextDescription style={{ textAlign: "center" }}>
-                  -excluding gas fee-
-                </s.TextDescription>
                 <s.SpacerLarge />
                 <s.SpacerSmall />
                 <s.TextDescription style={{ textAlign: "center" }}>
@@ -222,7 +219,10 @@ function App() {
         <s.SpacerSmall />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           <s.TextDescription style={{ textAlign: "center", fontSize: 18 }}>
-            10% of all proceeds go towards Charity
+            Once sold out, 10% of all proceeds will go towards wildlife conservation charity!
+          </s.TextDescription>
+          <s.TextDescription style={{ textAlign: "center", fontSize: 18 }}>
+            I will open a poll on twitter to decide which organization receives the donation
           </s.TextDescription>
           <s.SpacerSmall />
         </s.Container>
