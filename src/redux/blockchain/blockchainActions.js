@@ -1,7 +1,7 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
-import SmartContract from "../../contracts/TBCNFTABI.json";
+import SmartContract from "../../contracts/UniqueHorns.json";
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -51,10 +51,10 @@ export const connect = () => {
           method: "net_version",
         });
         // const NetworkData = await SmartContract.networks[networkId];
-        if (networkId == 1) {
+        if (networkId == 137) {
           const SmartContractObj = new Web3EthContract(
             SmartContract,
-            "0x688db0131c807a3495c23bc1b25726a76ea31f49"
+            "0xCd89a2675C30bE71a2Ce06AD4AEF66214Edba2Ed"
           );
           dispatch(
             connectSuccess({
@@ -72,13 +72,13 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed("Change network to Ethereum"));
+          dispatch(connectFailed("Please change network to Polygon"));
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong"));
       }
     } else {
-      dispatch(connectFailed("Install Metamask"));
+      dispatch(connectFailed("Please install Metamask"));
     }
   };
 };

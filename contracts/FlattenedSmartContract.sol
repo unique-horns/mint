@@ -1217,11 +1217,11 @@ abstract contract Ownable is Context {
     }
 }
 
-// File: contracts/TBCNFT.sol
+// File: contracts/UniqueHorns.sol
 
 pragma solidity ^0.8.0;
 
-contract TheBeeCollaborative is ERC721Enumerable, Ownable { // contract name to yours
+contract UniqueHorns is ERC721Enumerable, Ownable { // contract name to yours
   using Strings for uint256;
 
   string public baseURI;
